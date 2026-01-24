@@ -6,3 +6,4 @@
 获取歌曲播放视频
 
 初次使用请把主模块内的指令id改成你自己的
+需要安装ffmepg neteasecloudmusicapi（nodejs）
