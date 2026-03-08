@@ -1,26 +1,20 @@
-# main.py
-# ErisPulse 主程序文件
-# 本文件由 SDK 自动创建，您可随意修改
 import asyncio
 from ErisPulse import sdk
 
 async def main():
+    """主程序入口"""
+    # 初始化 SDK
+    await sdk.init()
+    
+    # 启动适配器
+    await sdk.adapter.startup()
+    
+    print("ErisPulse MusicBot 已启动，按 Ctrl+C 退出")
     try:
-        isInit = await sdk.init()
-        
-        if not isInit:
-            sdk.logger.error("ErisPulse 初始化失败，请检查日志")
-            return
-        
-        await sdk.adapter.startup()
-        
-        # 保持程序运行(不建议修改)
-        await asyncio.Event().wait()
-    except Exception as e:
-        sdk.logger.error(e)
+        while True:
+            await asyncio.sleep(1)
     except KeyboardInterrupt:
-        sdk.logger.info("正在停止程序")
-    finally:
+        print("\n正在关闭...")
         await sdk.adapter.shutdown()
 
 if __name__ == "__main__":

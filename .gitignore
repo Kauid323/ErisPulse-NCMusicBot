@@ -1,5 +1,5 @@
-.venv/
-all-files/
-temp/
+build/
+config/
+ErisPulse_MusicBot.egg-info/
 
 config.toml
